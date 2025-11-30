@@ -1,28 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
 :root {
-  --background: #020617;
-  --foreground: #f8fafc;
-  
+  --background: #09090b;
+  /* Zinc 950 */
+  --foreground: #fafafa;
+  /* Zinc 50 */
+
   --primary: #3b82f6;
+  /* Blue 500 */
   --primary-foreground: #ffffff;
-  
-  --secondary: #1e293b;
-  --secondary-foreground: #f8fafc;
-  
-  --accent: #f59e0b; /* Amber/Gold */
-  --accent-foreground: #020617;
-  
-  --muted: #334155;
-  --muted-foreground: #94a3b8;
-  
-  --card: #0f172a;
-  --card-foreground: #f8fafc;
-  
-  --border: #1e293b;
-  --input: #1e293b;
-  
-  --radius: 0.5rem;
+
+  --secondary: #27272a;
+  /* Zinc 800 */
+  --secondary-foreground: #fafafa;
+
+  --accent: #8b5cf6;
+  /* Violet 500 */
+  --accent-foreground: #ffffff;
+
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  /* Zinc 400 */
+
+  --card: #18181b;
+  /* Zinc 900 */
+  --card-foreground: #fafafa;
+
+  --border: #27272a;
+  --input: #27272a;
+
+  --radius: 1rem;
 }
 
 * {
@@ -35,9 +43,10 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Outfit', sans-serif;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15), transparent 50%),
+    radial-gradient(circle at 0% 50%, rgba(139, 92, 246, 0.1), transparent 50%);
+  background-attachment: fixed;
 }
 
 a {
@@ -47,85 +56,66 @@ a {
 
 /* Utilities */
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: 1px solid transparent;
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.btn-primary:hover {
-  background: #2563eb;
-}
-
-.btn-secondary {
-  background: var(--secondary);
-  color: var(--secondary-foreground);
-}
-
-.btn-secondary:hover {
-  background: #334155;
-}
-
-.btn-outline {
-  border-color: var(--border);
-  background: transparent;
-}
-
-.btn-outline:hover {
-  background: var(--secondary);
-}
-
-.btn-accent {
-  background: var(--accent);
-  color: var(--accent-foreground);
-  font-weight: 600;
-}
-
-.btn-accent:hover {
-  filter: brightness(1.1);
-}
-
+/* Glassmorphism */
 .glass {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(39, 39, 42, 0.4);
+  /* Lighter background for better visibility */
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* More visible border */
   border-radius: var(--radius);
-  overflow: hidden;
+  transition: all 0.3s ease;
 }
 
+.glass-card:hover {
+  background: rgba(39, 39, 42, 0.6);
+  border-color: rgba(59, 130, 246, 0.5);
+  /* Brighter hover border */
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+}
+
+/* Text Gradients */
 .text-gradient {
-  background: linear-gradient(to right, #3b82f6, #f59e0b);
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.text-gradient-gold {
+  background: linear-gradient(to right, #fbbf24, #f59e0b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-@media (min-width: 768px) {
-  .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }

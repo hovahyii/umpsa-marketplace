@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "UMPSA Marketplace",
@@ -15,12 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
-        <main style={{ flex: 1 }}>
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen flex flex-col">
+        <LanguageProvider>
+          <Navbar />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );
