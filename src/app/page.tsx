@@ -15,13 +15,13 @@ export default function Home() {
       <DisclaimerModal />
 
       {/* Hero Section */}
-      <section className="relative py-16 md:py-20 overflow-hidden">
+      <section className="relative py-8 md:py-12 overflow-hidden" style={{ paddingTop: '2rem' }}>
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600/20 rounded-full blur-[120px] -z-10 animate-pulse" />
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-violet-600/10 rounded-full blur-[100px] -z-10" />
 
-        <div className="container relative z-10 text-center px-4">
-          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-medium mb-8 backdrop-blur-md animate-float">
+        <div className="container relative z-10 text-center px-6" style={{ paddingLeft: '2rem', paddingRight: '2rem' }}>
+          <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white/5 border border-white/10 text-blue-300 text-sm font-medium mb-8 backdrop-blur-md animate-float" style={{ marginBottom: '1rem', marginTop: '0' }}>
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
@@ -34,13 +34,13 @@ export default function Home() {
             <span className="text-gradient">{t.hero.titleHighlight}</span>
           </h1>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center" style={{ marginBottom: '2rem' }}>
             <p className="text-slate-400 text-lg md:text-xl max-w-2xl mb-12 leading-relaxed font-light text-center">
               {t.hero.subtitle}
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 mt-8 mb-4">
+          <div className="flex flex-col md:flex-row items-center justify-center mt-8 mb-4" style={{ gap: '2rem', marginTop: '1rem', marginBottom: '2rem', paddingTop: '0.5rem', paddingBottom: '1rem' }}>
             <Link href="/all-services">
               <Button size="lg" className="w-full md:w-auto gap-2 px-8 py-3 text-base btn-primary rounded-full">
                 {t.hero.explore} <ArrowRight size={20} />
@@ -56,12 +56,12 @@ export default function Home() {
       </section>
 
       {/* Bento Grid Categories */}
-      <section className="container mb-16 px-4 mt-24">
+      <section className="container mb-16 px-6 mt-24" style={{ paddingLeft: '2rem', paddingRight: '2rem', marginTop: '3rem', paddingBottom: '2rem', paddingTop: '1rem' }}>
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
           Everything you need, <span className="text-slate-500">sorted.</span>
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Large Card - Car Rental */}
           <Link href="/all-services?category=Car Rental" className="group md:col-span-2 md:row-span-2 glass-card p-8 flex flex-col justify-between relative overflow-hidden">
             <div className="absolute top-0 right-0 p-8 opacity-20 group-hover:opacity-40 transition-opacity group-hover:scale-110 duration-500">
