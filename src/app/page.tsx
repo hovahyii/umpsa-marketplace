@@ -11,7 +11,7 @@ export default function Home() {
 
   return (
     // Updated spacing - reduced padding
-    <div className="pb-16 pt-16">
+    <div>
       <DisclaimerModal />
 
       {/* Hero Section */}
